@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: identity-deploy
+spec:
+  selector:
+    matchLabels:
+      app: identity
+  replicas: 1  
+  template:
+    metadata:
+      labels:
+        app: identity
+    spec:
+      containers:
+      - name: identityapi
+        image: jethvakaushik/identityapi:latest
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+        env:
+          - name: ConnectionStrings__IdentityConnection
+            value: "Data Source=mssql;Initial Catalog=IdentityDb;Persist Security=True;User Id=sa;Password=Password@123456"
+          - name: Jwt__Secret
+            value: "Thisismylengthsecretkeyforencryption"
+          - name: Jwt__Issuer
+            value: "http://identitysvc"
+          - name: Jwt__Audience
+            value: "http://eventsvc"

@@ -1,0 +1,74 @@
+
+#login to azure
+az login
+
+#check the latest version of Kubernetes available in Azure
+az aks get-versions -l "Southeastasia" --query "orchestrators[-1].orchestratorVersion" -o tsv
+
+#Create a new resource group
+az group create -n "MyAKSGroup" -l "Southeastasia"
+
+#Create a new AKS Cluster
+az aks create -g "MyAKSGroup" -l "Southeastasia" -n "kaushikakscluster" --node-count 2 --node-vm-size Standard_D1 --enable-addons monitoring --kubernetes-version 1.13.5 --generate-ssh-keys
+
+#Install kubctl
+az aks install-cli
+
+#Get the credentials of cluster to connect
+az aks get-credentials -g MyAKSGroup -n kaushikakscluster --overwrite-existing
+
+#View the cluster context config
+kubectl config view
+
+#Get cluster Nodes
+kubectl get nodes
+
+#Get service
+kubectl get svc
+
+#to get the pods
+kubectl get pods
+
+#Create secret key password
+kubectl create secret generic mssql --from-literal=SA_PASSWORD="Password@123456"
+
+#List the secreate 
+kubectl get secret
+
+#Create the PVC(Persistent Volumne Claim ) for sqlserver
+kubectl apply -f "./yaml/sqlserver-pvc.yaml"
+
+#List the PVC
+kubectl get pvc
+
+#Deploy Service
+kubectl apply -f "./yaml/sqlserver-service.yaml"
+
+# Get the IP SVC
+kubectl get svc
+
+#Deploy SQLServer
+kubectl apply -f "./yaml/sqlserver-deploy.yaml"
+
+#Delete deploy - delete deploy {deployment name}
+kubectl delete deploy sqlserver
+
+#Replace the existing deployment
+kubectl replace -f "./yaml/sqlserver-deploy.yaml"
+
+#set dashboard permissions
+kubectl apply -f "./yaml/dashboard-admin.yaml"
+
+#De
+kubectl apply -f "./yaml/identity-deploy.yaml"
+
+kubectl apply -f "./yaml/identity-service.yaml"
+
+
+kubectl apply -f "./yaml/event-deploy.yaml"
+
+kubectl apply -f "./yaml/event-service.yaml"
+
+
+#Browse
+az aks browse -g MyAKSGroup -n kaushikakscluster

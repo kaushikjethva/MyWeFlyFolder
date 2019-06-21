@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.645
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeFlyAuthentication-API", "WeFlyAuthentication-API\WeFlyAuthentication-API.csproj", "{7851FA83-E0B0-4FE6-833D-3C4974521068}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7851FA83-E0B0-4FE6-833D-3C4974521068}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7851FA83-E0B0-4FE6-833D-3C4974521068}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7851FA83-E0B0-4FE6-833D-3C4974521068}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7851FA83-E0B0-4FE6-833D-3C4974521068}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9AA2E498-6284-4EB2-B5B2-C9F316A3FF3F}
+	EndGlobalSection
+EndGlobal

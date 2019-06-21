@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="list-group">
+        <br>
+        <a href="javascript:void(0);" style="cursor: default" class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="row">
+            <div class="col-lg-1"><img src="{{searchflight.airlineLogo}}" alt=""
+                class="gws-flights-results__airline-logo" height="50" width="50"></div>
+            <div class="col-lg-6">
+              <h5> {{searchflight.airlineName}} - {{searchflight.fromCityName}}" </h5>
+            </div>
+            <div class="col-lg-2">
+              <h5 class="mb-1">{{ searchflight.departTimeSource | date:'HH:mm' }} - {{ searchflight.arrivalTimeDestination | date:'HH:mm' }}</h5>
+            </div>
+            <div class="col-lg-3">
+              <h5 class="mb-1"> Rs. {{searchflight.flightPrice }}<p class="float-right"><small><b> {{ searchflight.flightDuration }} hrs</b></small></p>
+              </h5>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-10">
+              <p class="mb-1"><b>Features:</b> Leg Space: {{ searchflight.legSpace == true ? "Yes" : "No" }} | Entertainment:
+                {{searchflight.isFlightEntertainmentAvailable == true ? "Yes" : "No"}} | Wifi: {{ searchflight.isWifiAvailable == true ? "Yes" : "No"}} | Meal:
+                {{ searchflight.isMealAvailable == true ? "Yes" : "No"}}</p>
+            </div>
+            <div class="col-lg-2">
+              <button type="submit" class="btn btn-primary" (click)="bookflight(searchflight)">Book Flight</button>
+            </div>
+          </div>
+          <div class="row ">
+            <div class="col-lg-12">
+              <Blockquote>
+                <h5>Board From: {{searchflight.fromCityName}}</h5>
+              </Blockquote>
+            </div>
+          </div>
+          <div class="row padding-lg">
+            <div class="col-lg-12">
+              <Blockquote>
+                <h5>Depart To: {{ searchflight.toCityName }}</h5>
+              </Blockquote>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

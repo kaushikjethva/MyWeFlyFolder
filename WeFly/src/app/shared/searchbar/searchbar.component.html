@@ -1,0 +1,63 @@
+<div class="container" style="padding-top:10px;">
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="from">From</label>
+          <!-- <input type="text" class="form-control" id="from" placeholder="Enter City" formControlName="from"> -->
+          <select class="form-control" formControlName="from" >
+              <option value="" >Select</option>
+              <option *ngFor="let cityitem of cities"  value="{{cityitem.id}}">{{cityitem.cityName}}</option>
+            </select>                    
+          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+          <!-- <span *ngIf="profileForm.from.invalid && profileForm.from.touched">From is required field.</span> -->
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="to">To</label>
+          <!-- <input type="text" class="form-control" id="to" placeholder="Enter City" formControlName="to" >           -->
+          <select class="form-control" formControlName="to" >
+              <option value="" >Select</option>
+              <option *ngFor="let cityitem of cities"  value="{{cityitem.id}}">{{cityitem.cityName}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="departDate">Dept Date</label>
+          <input type="date" class="form-control" id="departDate" placeholder="Dept. Date" formControlName="departDate" >
+        </div>
+      </div>
+      <!-- <div class="col-md-2">
+        <div class="form-group">
+          <label for="returnDate">Return Date</label>
+          <input type="date" class="form-control" id="returnDate" placeholder="Return Date" formControlName="returnDate">
+        </div>
+      </div> -->
+
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="passenger">Passengers</label>
+          <select class="form-control" formControlName="passenger" >
+            <option value="" >Select</option>
+            <option value="1" >1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-2" style="padding-top: 25px;">         
+          <button type="submit"  class="btn btn-primary">Search</button>        
+          <!-- [disabled]="!profileForm.valid" -->
+      </div>
+    </div>
+  </form>
+</div>

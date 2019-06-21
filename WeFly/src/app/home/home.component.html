@@ -1,0 +1,10 @@
+<!-- <app-navbar></app-navbar> -->
+<app-searchbar (searchEvent)="updateHomepage($event)"></app-searchbar>
+<ng-template [ngIf]="showSearch">
+        <app-banner></app-banner>
+</ng-template>
+<ng-template [ngIf]="!showSearch">
+    <app-search-listing></app-search-listing>
+</ng-template>
+
+<!-- <app-footer></app-footer> -->

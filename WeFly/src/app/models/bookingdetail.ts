@@ -1,0 +1,19 @@
+export class bookingdetails{
+    public id: string;
+    public firstName: string;
+    public laststName: string;
+    public emailId: string;
+    public mobileNo: number;
+    public address: string;
+    public state: string;
+    public city: string;
+    public pinCode: string;
+    public paymentId: string;
+    public routeId: string;
+    public scheduleId: string;
+    public planeId: string;
+    public ticketPrice: number;
+    public noSeatsBooked: string;
+    public journeyTime: string;
+    public cardNumber: string;      
+}
